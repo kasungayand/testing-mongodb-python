@@ -24,16 +24,17 @@ data = read_csv("courses.csv")
 course_list_new = data['courses'].tolist()
 
 
-url = "https://ap-southeast-1.aws.data.mongodb-api.com/app/data-gpdby/endpoint/data/v1/action/find"
+url = "https://ap-southeast-1.aws.data.mongodb-api.com/app/data-gpdby/endpoint/data/v1/action/aggregate"
 
 payload = {
     "collection": "submissions",
     "database": "canvas",
     "dataSource": "octopus-insights",
-    "filter": {
-      "assignment.courseId":"345"
-    },
-    "limit": 100000
+    "pipeline": [
+      {
+        "$match": { "assignment.courseId": "540" }
+      },
+    ]
 
 }
 headers = {
