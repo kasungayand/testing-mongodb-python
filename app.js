@@ -10,6 +10,9 @@ const payload = {
         {
             "$match": { "assignment.courseId": "345" }
         },
+        {
+            "$project": {"_id":0}
+        }
     ]
 };
 
