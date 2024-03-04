@@ -8,7 +8,7 @@ const payload = {
     "dataSource": "octopus-insights",
     "pipeline": [
         {
-            "$match": { "assignment.courseId": "550" }
+            "$match": { "assignment.courseId": "540" }
         },
     ]
 };
