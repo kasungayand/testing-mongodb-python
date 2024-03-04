@@ -32,7 +32,7 @@ payload = {
     "dataSource": "octopus-insights",
     "pipeline": [
       {
-        "$match": { "assignment.courseId": "345" }
+        "$match": { "assignment.courseId": "550" }
       },
     ]
 
