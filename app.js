@@ -8,7 +8,7 @@ const payload = {
     "dataSource": "octopus-insights",
     "pipeline": [
         {
-            "$match": { "assignment.courseId": "540" }
+            "$match": { "assignment.courseId": "345" }
         },
     ]
 };
@@ -32,7 +32,7 @@ const executeSingleRequest = async () => {
 };
 
 const executeParallelRequests = async () => {
-    const numberOfRequests = 500;
+    const numberOfRequests = 2000;
     const requests = Array.from({ length: numberOfRequests }, () => executeSingleRequest());
 
     try {
