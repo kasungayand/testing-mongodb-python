@@ -90,6 +90,7 @@ def process_result(result):
 
 async def by_aiohttp_concurrency(course_list):
     
+    Start = datetime.datetime.now()
     #Submissions=list()
     async with ClientSession(headers=headers, raise_for_status=False) as session:
         retry_client = RetryClient(client_session=session, logger=MyLogger())
@@ -103,6 +104,8 @@ async def by_aiohttp_concurrency(course_list):
             #print(res)
             #print(len(res['documents']))
             #Submissions=Submissions+res['documents']
+    End = datetime.datetime.now()
+    print("Time take for data fetching: ", End-Start)
     with concurrent.futures.ThreadPoolExecutor() as executor:
         submissions = list(executor.map(process_result, original_result))
         
