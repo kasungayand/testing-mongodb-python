@@ -33,7 +33,7 @@ payload = {
     "filter": {
       "assignment.courseId":"345"
     },
-    "limit": 3000
+    "limit": 100000
 
 }
 headers = {
