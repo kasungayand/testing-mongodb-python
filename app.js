@@ -32,18 +32,19 @@ const executeSingleRequest = async () => {
 };
 
 const executeParallelRequests = async () => {
-    const numberOfRequests = 1000;
+    const numberOfRequests = 2;
     const requests = Array.from({ length: numberOfRequests }, () => executeSingleRequest());
 
     try {
         const results = await Promise.all(requests);
         // Handle the results as needed
         console.log(results.length);
+        // console.log(results);
         // Extract document counts from each result
-        const documentCounts = results.map(result => result ? result.totalDocuments : 0);
-
+        const documents = results.map(result => result ? result.documents.length : 0);
+        console.log(documents);
         // Calculate the total document count
-        const totalDocumentCount = documentCounts.reduce((acc, count) => acc + count, 0);
+        const totalDocumentCount = documents.reduce((acc, count) => acc + count, 0);
 
         console.log("Total Document Count:", totalDocumentCount);
         console.timeEnd('Start')
