@@ -32,7 +32,7 @@ const executeSingleRequest = async () => {
 };
 
 const executeParallelRequests = async () => {
-    const numberOfRequests = 1;
+    const numberOfRequests = 1000;
     const requests = Array.from({ length: numberOfRequests }, () => executeSingleRequest());
 
     try {
