@@ -8,7 +8,7 @@ const payload = {
     "dataSource": "octopus-insights",
     "pipeline": [
         {
-            "$match": { "assignment.courseId": "540" }
+            "$match": { "assignment.courseId": "345" }
         },
     ]
 };
@@ -39,7 +39,7 @@ const executeParallelRequests = async () => {
         const results = await Promise.all(requests);
         // Handle the results as needed
         console.log(results.length);
-        console.time('End')
+        console.timeEnd('Start')
     } catch (error) {
         // Handle errors as needed
         console.error(error.message);
