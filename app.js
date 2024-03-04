@@ -32,11 +32,12 @@ const executeSingleRequest = async () => {
 };
 
 const executeParallelRequests = async () => {
-    const numberOfRequests = 2;
+    const numberOfRequests = 1000;
     const requests = Array.from({ length: numberOfRequests }, () => executeSingleRequest());
 
     try {
         const results = await Promise.all(requests);
+        console.time('Looptime')
         // Handle the results as needed
         console.log(results.length);
         // console.log(results);
@@ -46,8 +47,9 @@ const executeParallelRequests = async () => {
         // Calculate the total document count
         const totalDocumentCount = documents.reduce((acc, count) => acc + count, 0);
 
+        console.timeEnd('Looptime')
         console.log("Total Document Count:", totalDocumentCount);
-        console.timeEnd('Start')
+        console.timeEnd('Execution time')
     } catch (error) {
         // Handle errors as needed
         console.error(error.message);
@@ -56,5 +58,5 @@ const executeParallelRequests = async () => {
 
 // Call the function to execute parallel requests
 
-console.time('Start')
+console.time('Execution time')
 executeParallelRequests();
