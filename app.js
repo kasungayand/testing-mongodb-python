@@ -39,6 +39,13 @@ const executeParallelRequests = async () => {
         const results = await Promise.all(requests);
         // Handle the results as needed
         console.log(results.length);
+        // Extract document counts from each result
+        const documentCounts = results.map(result => result ? result.totalDocuments : 0);
+
+        // Calculate the total document count
+        const totalDocumentCount = documentCounts.reduce((acc, count) => acc + count, 0);
+
+        console.log("Total Document Count:", totalDocumentCount);
         console.timeEnd('Start')
     } catch (error) {
         // Handle errors as needed
