@@ -46,7 +46,7 @@ const executeParallelRequests = async () => {
     try {
         const results = await Promise.all(requests);
         console.time('Looptime')
-        console.log(results.length);
+        console.log("Promises length", results.length);
         getDocumentCount(results).then(count => {
             console.timeEnd('Looptime')
             console.log("Total Document Count:", count);
